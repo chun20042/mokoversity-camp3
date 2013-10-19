@@ -1,13 +1,14 @@
 
   var game=(function(){
+    var count=0,
+    timeout=0;
 
-
-    function start(){var myCanvas =document.getElementById("myCanvas");
+    function start()
+    {var myCanvas =document.getElementById("myCanvas");
   var myContext=myCanvas.getContext("2d");
-
+myCanvas.height=600;
+myCanvas.width=600;
   var size= Math.random();
-var color1="#"+Math.random()*255+","+Math.random()*255+","+Math.random()*255; 
-  
   myContext.strokeStyle="black";
   myContext.fillStyle="black";
 
@@ -39,9 +40,27 @@ var color1="#"+Math.random()*255+","+Math.random()*255+","+Math.random()*255;
   myContext.closePath();
   myContext.fill();
 
+      if(count <10){
+      timeout=setTimeout(start,1000);
+      count++;
+ console.log(timeout+"&"+count);
+      }
+
+
+
 }
 return{
   start:start
 }
+
+function gameover(){
+
+ 
+
+
+}
+
+
+
 })();
 game.start();
