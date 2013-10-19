@@ -1,9 +1,13 @@
 
-  (function()
-    {var myCanvas =document.getElementById("myCanvas");
+  var game=(function(){
+
+
+    function start(){var myCanvas =document.getElementById("myCanvas");
   var myContext=myCanvas.getContext("2d");
 
   var size= Math.random();
+var color1="#"+Math.random()*255+","+Math.random()*255+","+Math.random()*255; 
+  
   myContext.strokeStyle="black";
   myContext.fillStyle="black";
 
@@ -35,6 +39,9 @@
   myContext.closePath();
   myContext.fill();
 
-
-  })();
-
+}
+return{
+  start:start
+}
+})();
+game.start();
