@@ -58,7 +58,8 @@
 <canvas id="myCanvas" width="150" height="150"></canvas>
 <script type="text/javascript">
 
-var myCanvas =document.getElementById("myCanvas");
+(function()
+  {var myCanvas =document.getElementById("myCanvas");
 var myContext=myCanvas.getContext("2d");
 myContext.strokeStyle="black";
 myContext.fillStyle="black";
@@ -181,7 +182,7 @@ myContext.moveTo(-10,-45);
 myContext.lineTo(10,-45);
 myContext.stroke();
 
-
+})();
 
 
 
