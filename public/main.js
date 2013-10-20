@@ -1,5 +1,6 @@
 
-  var game=(function(){
+  var game=(function(document, $){
+    "user strict";
     var count=0,
     timeout,
     x,
@@ -31,6 +32,7 @@ if(tmp<=size*size){
   var score= 100-size;
   mark += score;
   console.log("clicked"+score);
+
   }
 
 
@@ -38,6 +40,8 @@ if(tmp<=size*size){
 
 function gameover(){
   console.log("Final:"+mark);
+  var api= "http://127.0.0.1:3000/scores?s="+mark;
+  $.ajax({url : api});
 
 }
 
@@ -67,7 +71,7 @@ function gameover(){
 
         if(count <10){
           count++;
-        timeout=setTimeout(startGame,1500);
+        timeout=setTimeout(startGame,1000);
         
    console.log(timeout+"&"+count);
         }
@@ -82,10 +86,10 @@ function gameover(){
 
     return{
         start:start
-          }
+          };
 
   
 
 
-})();
+}(document, $));
 game.start();
